@@ -10,6 +10,7 @@ Add your name in the following format:
 ## Contributors List
 
 - [John Doe](https://github.com/johndoe) - Hello world! This is my first open source contribution.
+- [Himanshu Kumar](https://github.com/H1manshu-Kumar) - Here comes my first open-source contribution 🚀 ✨
 - [Jane Smith](https://github.com/janesmith) - Excited to start my open source journey!
 - [Alex Johnson](https://github.com/alexjohnson) - Learning Git and GitHub step by step.
 
