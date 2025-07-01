@@ -1,0 +1,65 @@
+name: Welcome New Contributors
+
+on:
+  pull_request:
+    types: [opened]
+  issues:
+    types: [opened]
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome new contributor
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { context } = require('@actions/github');
+            
+            if (context.eventName === 'pull_request') {
+              const message = `🎉 **Welcome to First Contributions Practice!** 🎉
+              
+              Thank you @${context.payload.pull_request.user.login} for your first contribution! 
+              
+              Here's what happens next:
+              1. A maintainer will review your pull request
+              2. If everything looks good, we'll merge it
+              3. You'll officially be a contributor to this project!
+              
+              If this is your first time contributing to open source, congratulations! You're now part of the amazing open source community. 🚀
+              
+              **Tips for future contributions:**
+              - Look for repositories with "good first issue" labels
+              - Read the contributing guidelines before making changes
+              - Don't be afraid to ask questions
+              - Keep learning and keep contributing!
+              
+              Thank you for being part of our learning community! 💖`;
+              
+              github.rest.issues.createComment({
+                issue_number: context.payload.pull_request.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: message
+              });
+            }
+            
+            if (context.eventName === 'issues') {
+              const message = `👋 **Hello @${context.payload.issue.user.login}!**
+              
+              Thank you for opening an issue! We appreciate your feedback and contribution to making this project better.
+              
+              A maintainer will review your issue and respond soon. In the meantime:
+              - Make sure you've provided all the necessary details
+              - Check if there are any similar existing issues
+              - Feel free to add more information if needed
+              
+              Thank you for helping us improve! 🙏`;
+              
+              github.rest.issues.createComment({
+                issue_number: context.payload.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: message
+              });
+            }

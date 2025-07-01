@@ -1,0 +1,60 @@
+name: Validate Pull Request
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Check if Contributors.md was modified
+        id: check-contributors
+        run: |
+          if git diff --name-only origin/main...HEAD | grep -q "Contributors.md"; then
+            echo "contributors_modified=true" >> $GITHUB_OUTPUT
+          else
+            echo "contributors_modified=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Validate contribution
+        run: |
+          if [ "${{ steps.check-contributors.outputs.contributors_modified }}" = "true" ]; then
+            echo "✅ Great! Contributors.md has been modified."
+          else
+            echo "❌ Contributors.md was not modified. Please add your name to the Contributors.md file."
+            exit 1
+          fi
+
+      - name: Check for unwanted files
+        run: |
+          # Check if any unwanted files were added
+          unwanted_files=$(git diff --name-only origin/main...HEAD | grep -E '\.(exe|dll|so|dylib|class|jar|war|ear)$' || true)
+          if [ -n "$unwanted_files" ]; then
+            echo "❌ Unwanted binary files detected: $unwanted_files"
+            echo "Please remove binary files and only commit text changes."
+            exit 1
+          else
+            echo "✅ No unwanted binary files detected."
+          fi
+
+      - name: Validate commit message
+        run: |
+          commit_message=$(git log --format=%s -n 1)
+          if echo "$commit_message" | grep -qi "add.*contributor\|add.*name\|first.*contribution"; then
+            echo "✅ Commit message looks good: $commit_message"
+          else
+            echo "⚠️  Consider using a more descriptive commit message like 'Add [Your Name] to Contributors list'"
+            echo "Current message: $commit_message"
+          fi
+
+      - name: Success message
+        if: success()
+        run: |
+          echo "🎉 All checks passed! Your contribution looks great."
+          echo "A maintainer will review your pull request soon."
