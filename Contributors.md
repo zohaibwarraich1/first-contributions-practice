@@ -13,7 +13,7 @@ Add your name in the following format:
 - [Jane Smith](https://github.com/janesmith) - Excited to start my open source journey!
 - [Alex Johnson](https://github.com/alexjohnson) - Learning Git and GitHub step by step.
 
-- [Meenakshi Rawat](https://github.com/meenakshiraw) - thanks for teaching us github deeply ...
+- [Meenakshi Rawat](https://github.com/meenakshiraw) - thanks for teaching us github deeply ....
 
 <!-- Add your name above this line -->
 
