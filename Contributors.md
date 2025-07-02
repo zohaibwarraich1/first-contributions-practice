@@ -11,6 +11,7 @@ Add your name in the following format:
 
 - [John Doe](https://github.com/johndoe) - Hello world! This is my first open source contribution.
 - [Himanshu Kumar](https://github.com/H1manshu-Kumar) - Here comes my first open-source contribution 🚀 ✨
+- [Wahaj Ahmed](https://github.com/wahajahmad-cyber) - My first open-source contribution & More 👍
 - [Jane Smith](https://github.com/janesmith) - Excited to start my open source journey!
 - [Alex Johnson](https://github.com/alexjohnson) - Learning Git and GitHub step by step.
 - [Priyanshi jat](https://github.com/priyanshijat) - Hello Dosto! I'm priyanshi jat and I'm fresher in Devops world and started my devops journey with trainwithshubham and it is an amazing platform to learn devops. Thanks to shubham bhaiya and tws community.
