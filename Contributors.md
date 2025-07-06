@@ -14,6 +14,8 @@ Add your name in the following format:
 - [Wahaj Ahmed](https://github.com/wahajahmad-cyber) - My first open-source contribution & More 👍
 - [Priyanshi jat](https://github.com/priyanshijat) - Hello Dosto! I'm priyanshi jat and I'm fresher in Devops world and started my devops journey with trainwithshubham and it is an amazing platform to learn devops. Thanks to shubham bhaiya and tws community.
 - [sravya bolla](https://github.com/iam-bolla)-here is my first contrubution
+- [Meenakshi Rawat](https://github.com/meenakshiraw) - thanks for teaching us github deeply ....
+
 <!-- Add your name above this line -->
 
 ---
